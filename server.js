@@ -41,6 +41,12 @@ Content-Type: text/css
 
 ${cssStyles}`;
 	}
+	if(path !== `/css/styles.css` &&  path !== `/hydrogen.html` && path !== `/helium.html` && path !== `/favicon.ico` && path !== `/`){
+		headersAndBody =`HTTP/1.1 200 OK
+Content-Type: text/html
+
+${errorMsg}`;
+	}
 
 	request.write(headersAndBody);
 	request.end();
